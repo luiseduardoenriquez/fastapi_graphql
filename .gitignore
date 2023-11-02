@@ -1,0 +1,18 @@
+#PyCharmFiles
+.idea/
+/venv
+.env
+app.log
+
+#Mac Files
+.DS_Store
+
+# Default ignored files
+
+# Editor-based HTTP Client requests
+
+# Datasource local storage ignored files
+
+# PyCache
+__pycache__/
+
