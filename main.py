@@ -17,6 +17,13 @@ class User(graphene.ObjectType):
     def resolve_age(self, info):
         return self.age
 
+def get_users():
+    users = [
+        User(id="1", name="John", age=23),
+        User(id="2", name="Jane", age=34),
+    ]
+    return users
+
 class Query(graphene.ObjectType):
     hello = graphene.String()
     bye = graphene.String()
@@ -31,22 +38,13 @@ class Query(graphene.ObjectType):
         return "Goodbye World"
 
     def resolve_user(self, info, id):
-        users = [
-            User(id="1", name="John", age=23),
-            User(id="2", name="Jane", age=34),
-        ]
-
-        for user in users:
+        for user in get_users():
             if user.id == id:
                 return user
         return None
 
     def resolve_users(self, info):
-        users = [
-            User(id="1", name="John", age=23),
-            User(id="2", name="Jane", age=34),
-        ]
-        return users
+        return get_users()
 
 
 
